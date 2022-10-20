@@ -1,11 +1,18 @@
 import React from 'react';
-
+import HeaderComponent from "./components/Header";
+import CartComponent from "./components/Cart";
+import CatalogComponent from "./components/Catalog";
 import './App.scss';
 
 function App() {
   return (
     <div className="App">
-     some text
+
+     <HeaderComponent/>
+        <div className="container">
+            <CartComponent />
+            <CatalogComponent />
+        </div>
     </div>
   );
 }
