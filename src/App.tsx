@@ -1,8 +1,9 @@
 import React from 'react';
 import HeaderComponent from "./components/Header";
-import CartComponent from "./components/Cart";
+import CartComponent from "./components/Favorites";
 import CatalogComponent from "./components/Catalog";
 import './App.scss';
+
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
             <CartComponent />
             <CatalogComponent />
         </div>
+
     </div>
   );
 }

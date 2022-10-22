@@ -3,5 +3,4 @@ export interface IProduct{
     name: string
     price: number
     src: string
-    isLiked?: boolean
 }

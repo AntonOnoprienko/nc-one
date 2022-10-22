@@ -3,16 +3,16 @@ import {IProduct} from "../models/IProduct";
 import '../App.scss'
 
 
-const CartItemComponent = (props: IProduct) => {
-    return <div className="cart__item">
-        <div className="cart__image">
+const FavoritesItemComponent = (props: IProduct) => {
+    return <div className="favorites__item">
+        <div className="favorites__image">
             <img src={`https://testbackend.nc-one.com${props.src}`} alt="product" width={108} height={108}/>
         </div>
         <div className="item__info">
-            <p className="cart__name">{props.name} </p>
+            <p className="favorites__name">{props.name}</p>
             <div className="description">
-                <p className='cart__price'>$ {props.price}</p>
-                <svg className='cart__btn' width="30" height="30" viewBox="0 0 30 30" fill="none"
+                <p className='favorites__price'>$ {props.price}</p>
+                <svg className='favorites__btn' width="30" height="30" viewBox="0 0 30 30" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
                     <rect x="2.5" y="2.5" width="25" height="25" rx="7" fill="#414141"/>
                     <path
@@ -20,9 +20,7 @@ const CartItemComponent = (props: IProduct) => {
                         fill="#FFCC26"/>
                 </svg>
             </div>
-
-
         </div>
     </div>
 }
-export default CartItemComponent;
+export default FavoritesItemComponent;
