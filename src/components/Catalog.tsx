@@ -7,10 +7,12 @@ import {FixedSizeGrid as Grid} from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 
 const CatalogComponent = () => {
+
     const products = useStoreState('products')
     const columnCount: number = 4;
     const columnWidth: number = 292;
     const columnHeight: number = 420;
+    console.log('render catalog')
 
 
     useEffect(() => {
@@ -22,6 +24,7 @@ const CatalogComponent = () => {
             )
 
     }, [])
+    console.log(products)
     return (
 
         <div style={{width: '100%', height: '100vh'}}>
@@ -41,11 +44,9 @@ const CatalogComponent = () => {
                             const currentElement = products[columnCount * rowIndex + columnIndex]
                             return (
                                 <div style={style} className='webkit'>
-                                    {<ProductComponent
-                                        name={currentElement.name}
-                                        price={currentElement.price}
-                                        src={currentElement.src}
-                                        key={currentElement.id}/>}
+                                    <ProductComponent
+                                        product={currentElement}
+                                    />
                                 </div>
                             )
                         }}

@@ -136,8 +136,6 @@
     text-align: left;
     display: flex;
     align-items: center;
-
-
   }
   .product__name:hover{
     overflow: auto;
@@ -148,6 +146,7 @@
     line-height: 36px;
   }
   .product__btn{
+    z-index: 5;
     cursor: pointer;
   }
 
