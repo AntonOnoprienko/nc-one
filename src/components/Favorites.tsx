@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.scss'
-import {useStoreState} from "../store/state";
+import {useStoreState} from "../store/store";
 import FavoritesItemComponent from "./FavoritesItemComponent";
 
 
@@ -12,6 +12,7 @@ const FavoritesComponent = () => {
             <p className='favorites__title'>
                 Favorites
             </p>
+
             <div className='favorites__list'>
                 {favorites.map(product => <FavoritesItemComponent name={product.name} price={product.price}
                                                                   src={product.src} key={Math.random()}/>)}

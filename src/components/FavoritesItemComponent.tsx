@@ -1,6 +1,7 @@
 import React from 'react';
 import {IProduct} from "../models/IProduct";
 import '../App.scss'
+import {dispatch} from "../store/store";
 
 
 const FavoritesItemComponent = (props: IProduct) => {
@@ -12,7 +13,7 @@ const FavoritesItemComponent = (props: IProduct) => {
             <p className="favorites__name">{props.name}</p>
             <div className="description">
                 <p className='favorites__price'>$ {props.price}</p>
-                <svg className='favorites__btn' width="30" height="30" viewBox="0 0 30 30" fill="none"
+                <svg onClick={()=>{dispatch({type:'removeFromFavorites',payload:props.id})}} className='favorites__btn' width="30" height="30" viewBox="0 0 30 30" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
                     <rect x="2.5" y="2.5" width="25" height="25" rx="7" fill="#414141"/>
                     <path
