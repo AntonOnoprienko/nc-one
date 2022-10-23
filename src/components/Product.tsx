@@ -1,19 +1,17 @@
 import '../App.scss';
 import {IProduct} from "../models/IProduct";
-import {dispatch} from "../store/store";
+import {dispatch, useStoreState} from "../store/store";
 import React from "react";
 
 
 const ProductComponent = (props: {product:IProduct } ) => {
-
-    const likeColor = props.product.isLiked ? '#414141' : '#ffff'
+    const isLiked = useStoreState('favorites').find(product => product.id === props.product.id)
+    const likeColor = isLiked ? '#414141' : '#ffff'
     const likeHandler = () => {
-        if(!props.product.isLiked){
-            dispatch({type: 'addToFavorites', payload: props.product})
-            dispatch({type:'setIsLiked',payload:props.product.id})
+        if(!isLiked){
+            dispatch({type: 'addToFavorites', payload: props.product.id})
         } else {
             dispatch({type:'removeFromFavorites',payload:props.product.id})}
-            dispatch({type:'setIsLiked',payload:props.product.id})
         }
     return (
         <div className='product__inner'>

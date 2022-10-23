@@ -81,6 +81,7 @@
     height: 48px;
     font-size: 16px;
     line-height: 24px;
+    overflow: hidden;
   }
 
   .favorites__price {
@@ -91,7 +92,11 @@
 
   .favorites__btn {
     cursor: pointer;
+    position: absolute;
+    right: 57px;
+    bottom: 12px;
   }
+
 }
 
 
@@ -185,4 +190,39 @@
   background-color: #FFCC26;
   border-radius: 15px;
   height: 60px;
+}
+
+.info__inner {
+  width: 1185px;
+  height: 531px;
+  margin: 160px 0 0 128px;
+  display: flex;
+  align-items: center;
+  flex-basis: 50%;
+
+
+  .info__image{
+  width: 690px;
+  }
+  .info__info{
+    width: 690px;
+  }
+
+  .info__name {
+    font-size: 64px;
+    line-height: 96px;
+  }
+
+  .info__price {
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 96px;
+  }
+
+  .info__btn {
+    cursor: pointer;
+    width: 98px;
+    height: 98px;
+  }
+
 }
