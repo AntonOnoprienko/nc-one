@@ -1,12 +1,12 @@
 import '../App.scss';
-import { NavLink} from "react-router-dom";
+import { Link} from "react-router-dom";
 
 const HeaderComponent = () => {
 
 
     return (
         <header className="header">
-            <NavLink to={'/'}><p className="header__text">Product List Page</p></NavLink>
+            <Link to={'/'}><p className="header__text">Product List Page</p></Link>
 
         </header>
     )
