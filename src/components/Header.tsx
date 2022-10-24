@@ -8,9 +8,7 @@ const HeaderComponent = () => {
 
     return (
         <header className="header">
-            { isProductPage  &&  <Link to={'/'}><p className="header__text">Product Page</p></Link> }
-            { !isProductPage && <Link to={'/'}><p className="header__text">Product List Page</p></Link> }
-
+            <Link to={'/'}><p className="header__text">{isProductPage ? 'Product page':'Product list page'}</p></Link>
         </header>
     )
 }

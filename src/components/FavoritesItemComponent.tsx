@@ -2,18 +2,22 @@ import React from 'react';
 import {IProduct} from "../models/IProduct";
 import '../App.scss'
 import {dispatch} from "../store/store";
+import {Link} from "react-router-dom";
 
 
-const FavoritesItemComponent = (props: IProduct) => {
+const FavoritesItemComponent = (props: {product:IProduct} ) => {
     return <div className="favorites__item">
+
         <div className="favorites__image">
-            <img src={`https://testbackend.nc-one.com${props.src}`} alt="product" width={108} height={108}/>
+            <img src={`https://testbackend.nc-one.com${props.product.src}`} alt="product" width={108} height={108}/>
         </div>
         <div className="item__info">
-            <p className="favorites__name">{props.name}</p>
+            <Link to={`details/${props.product.id}`} >
+            <p className="favorites__name">{props.product.name}</p>
+            </Link>
             <div className="description">
-                <p className='favorites__price'>$ {props.price}</p>
-                <svg onClick={()=>{dispatch({type:'removeFromFavorites',payload:props.id})}} className='favorites__btn' width="30" height="30" viewBox="0 0 30 30" fill="none"
+                <p className='favorites__price'>$ {props.product.price}</p>
+                <svg onClick={()=>{dispatch({type:'removeFromFavorites',payload:props.product.id})}} className='favorites__btn' width="30" height="30" viewBox="0 0 30 30" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
                     <rect x="2.5" y="2.5" width="25" height="25" rx="7" fill="#414141"/>
                     <path
