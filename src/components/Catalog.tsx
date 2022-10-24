@@ -12,7 +12,7 @@ const CatalogComponent = () => {
     const columnCount: number = 4;
     const columnWidth: number = 292;
     const columnHeight: number = 420;
-    console.log('render catalog')
+
 
 
     useEffect(() => {
@@ -24,7 +24,6 @@ const CatalogComponent = () => {
             )
 
     }, [])
-    console.log(products)
     return (
 
         <div style={{width: '100%', height: '100vh'}}>

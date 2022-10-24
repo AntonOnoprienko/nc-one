@@ -2,6 +2,7 @@ import '../App.scss';
 import {IProduct} from "../models/IProduct";
 import {dispatch, useStoreState} from "../store/store";
 import React from "react";
+import {Link} from "react-router-dom";
 
 
 const ProductComponent = (props: {product:IProduct } ) => {
@@ -16,7 +17,11 @@ const ProductComponent = (props: {product:IProduct } ) => {
     return (
         <div className='product__inner'>
             <div className="product__image">
+
+                <Link to={`/details/${props.product.id}`}>
                 <img src={`https://testbackend.nc-one.com${props.product.src}`} alt="product" width={200} height={200}/>
+                </Link>
+
             </div>
             <div className="product__info">
                 <p className="product__name">{props.product.name} </p>
