@@ -1,23 +1,24 @@
 import React from 'react';
-import {IProduct} from "../models/IProduct";
-import '../App.scss'
-import {dispatch} from "../store/store";
 import {Link} from "react-router-dom";
+import {IProduct} from "../types/IProduct";
+import classes from '../styles/favorites.module.scss'
+import {actionCreator} from "../store/store";
 
 
-const FavoritesItemComponent = (props: {product:IProduct} ) => {
-    return <div className="favorites__item">
-
-        <div className="favorites__image">
-            <img src={`https://testbackend.nc-one.com${props.product.src}`} alt="product" width={108} height={108}/>
+const FavoriteItemComponent = ({product:{name,src,id,price}} : {product:IProduct}) => {
+    return <div className={classes.favorites__item}>
+        <div className={classes.favorites__image}>
+            <img src={`https://testbackend.nc-one.com${src}`} alt="product" width={108} height={108}/>
         </div>
-        <div className="item__info">
-            <Link to={`details/${props.product.id}`} >
-            <p className="favorites__name">{props.product.name}</p>
+        <div className={classes.item__info}>
+            <Link to={`details/${id}`}>
+                <p className={classes.favorites__name}>{name}</p>
             </Link>
-            <div className="description">
-                <p className='favorites__price'>$ {props.product.price}</p>
-                <svg onClick={()=>{dispatch({type:'removeFromFavorites',payload:props.product.id})}} className='favorites__btn' width="30" height="30" viewBox="0 0 30 30" fill="none"
+            <div className={classes.description}>
+                <p className={classes.favorites__price}>$ {price}</p>
+                <svg onClick={() => {
+                    actionCreator('removeFromFavorites',id)
+                }} className={classes.favorites__btn} width="30" height="30" viewBox="0 0 30 30" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
                     <rect x="2.5" y="2.5" width="25" height="25" rx="7" fill="#414141"/>
                     <path
@@ -28,4 +29,4 @@ const FavoritesItemComponent = (props: {product:IProduct} ) => {
         </div>
     </div>
 }
-export default FavoritesItemComponent;
+export default FavoriteItemComponent;

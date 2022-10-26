@@ -1,14 +1,11 @@
-import '../App.scss';
 import {Link, useLocation} from "react-router-dom";
-
+import classes from '../styles/header.module.scss'
 const HeaderComponent = () => {
-    const location = useLocation().pathname
-    const isProductPage = location.includes('/details/')
-
+    const isProductPage = useLocation().pathname.includes('/details/')
 
     return (
-        <header className="header">
-            <Link to={'/'}><p className="header__text">{isProductPage ? 'Product page':'Product list page'}</p></Link>
+        <header className={classes.header}>
+            <Link to={'/'}><p className={classes.header__text}>{isProductPage ? 'Product page':'Product list page'}</p></Link>
         </header>
     )
 }

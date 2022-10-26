@@ -1,24 +1,19 @@
 import React from 'react';
-import '../App.scss'
+import classes from '../styles/favorites.module.scss'
 import {useStoreState} from "../store/store";
-import FavoritesItemComponent from "./FavoritesItemComponent";
-
+import FavoriteItemComponent from "./FavoriteItem"
 
 
 
 const FavoritesComponent = () => {
     const favorites = useStoreState('favorites')
     return (
-        <div className="favorites__inner">
-            <p className='favorites__title'>
+        <div className={classes.favorites__inner}>
+            <p className={classes.favorites__title}>
                 Favorites
             </p>
-
-            <div className='favorites__list'>
-                {favorites.map(product =>
-                        <FavoritesItemComponent product={product} key={product.id} />
-                            )
-                    }
+            <div className={classes.favorites__list}>
+                {favorites.map(product => <FavoriteItemComponent product={product} key={product.id} />)}
             </div>
         </div>
     )

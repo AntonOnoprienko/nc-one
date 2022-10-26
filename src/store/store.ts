@@ -1,11 +1,10 @@
-import {IProduct} from "../models/IProduct";
+import {IProduct} from "../types/IProduct";
 import {createStore} from 'react-hooks-global-state';
 
 interface IState {
     products: IProduct[]
     favorites: IProduct[]
 }
-
 interface IAction {
     type: string,
     payload: any
@@ -32,5 +31,7 @@ const reducer = (state = initialState, action: IAction): IState => {
             return state;
     }
 }
-    ;
     export const {dispatch, useStoreState} = createStore(reducer, initialState);
+    export const actionCreator = (action:string,actionPayload:number | null | Array<IProduct>) => {
+    dispatch({type: action, payload: actionPayload})
+}
