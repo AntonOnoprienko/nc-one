@@ -1,7 +1,7 @@
 import HeaderComponent from "./header/ComponentHeader";
 import React from "react";
 import {Outlet} from "react-router-dom";
-import FavoritesComponent from "./Favorites/ComponentFavorites";
+import FavoritesComponent from "./favorites/ComponentFavorites";
 
 
 const Layout = () => {
