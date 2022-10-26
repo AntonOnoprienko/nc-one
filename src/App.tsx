@@ -9,7 +9,6 @@ function App() {
                <RoutesComponent />
         </div>
     )
-        ;
 }
 
 export default App;
