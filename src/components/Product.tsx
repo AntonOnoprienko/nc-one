@@ -3,10 +3,11 @@ import {Link} from "react-router-dom";
 import {IProduct} from "../types/IProduct";
 import {actionCreator, useStoreState} from "../store/store";
 import classes from '../styles/product.module.scss'
+import {useIdFinder} from "../hooks/hooks";
 
 
 const ProductComponent = ({ product: {name,src,id,price}}:{product:IProduct }) => {
-    const isLiked = useStoreState('favorites').find(product => product.id === id)
+    const isLiked = useIdFinder(useStoreState('favorites'),id)
     const likeHandler = () => {
         if (!isLiked) {
             actionCreator('addToFavorites',id)

@@ -1,14 +1,14 @@
 import React, {useState} from 'react'
 import {Navigate} from "react-router-dom";
 import {actionCreator, useStoreState} from "../store/store";
-import {useParamsInt} from "../hooks/hooks";
+import {useIdFinder, useParamsInt} from "../hooks/hooks";
 import classes from '../styles/details.module.scss'
 
 const DetailsComponent = () => {
     const [isScaled, setIzScaled] = useState(false)
     const id = useParamsInt();
-    const isLiked = useStoreState('favorites').find(product => product.id === id)
-    const product = useStoreState('products').find(product => product.id === id)
+    const isLiked = useIdFinder(useStoreState('favorites'),id)
+    const product = useIdFinder(useStoreState('products'),id)
     const likeHandler = () => {
         if (!isLiked) {
             actionCreator('addToFavorites', id)
