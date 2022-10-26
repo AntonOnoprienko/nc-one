@@ -1,8 +1,7 @@
-import '../App.scss';
-import {IProduct} from "../types/IProduct";
-import {actionCreator, useStoreState} from "../store/store";
 import React from "react";
 import {Link} from "react-router-dom";
+import {IProduct} from "../types/IProduct";
+import {actionCreator, useStoreState} from "../store/store";
 import classes from '../styles/product.module.scss'
 
 
