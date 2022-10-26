@@ -6,6 +6,11 @@ export enum Actions {
     addProduct= 'addToFavorites',
 removeProduct = 'removeFromFavorites',
 }
-export const actionCreator = (action:string,actionPayload:number | null | Array<IProduct>) => {
+export interface IAction {
+    type: string,
+    payload: any
+}
+
+export const actionDispatcher = (action:string,actionPayload:number | null | Array<IProduct>) => {
     dispatch({type: action, payload: actionPayload})
 }

@@ -3,7 +3,8 @@ import {Navigate} from "react-router-dom";
 import { useStoreState} from "../../store/store";
 import {useIdFinder, useParamsInt} from "../../hooks/hooks";
 import classes from './ComponentDetails.module.scss'
-import {actionCreator, Actions} from "../../store/actions";
+import {actionDispatcher, Actions} from "../../store/actions";
+
 
 const DetailsComponent = () => {
     const [isScaled, setIzScaled] = useState(false)
@@ -12,9 +13,9 @@ const DetailsComponent = () => {
     const product = useIdFinder(useStoreState('products'),id)
     const likeHandler = () => {
         if (!isLiked) {
-            actionCreator(Actions.addProduct, id)
+            actionDispatcher(Actions.addProduct, id)
         } else {
-            actionCreator(Actions.removeProduct, id)
+            actionDispatcher(Actions.removeProduct, id)
         }
     }
     return (<>

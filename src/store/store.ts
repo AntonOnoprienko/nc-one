@@ -1,13 +1,10 @@
 import {IProduct} from "../types/IProduct";
 import {createStore} from 'react-hooks-global-state';
+import {Actions, IAction} from "./actions";
 
 interface IState {
     products: IProduct[]
     favorites: IProduct[]
-}
-interface IAction {
-    type: string,
-    payload: any
 }
 
 const initialState: IState = {
@@ -15,16 +12,16 @@ const initialState: IState = {
     favorites: [],
 };
 
-const reducer = (state = initialState, action: IAction): IState => {
+const reducer = (state = initialState, action:IAction): IState => {
     switch (action.type) {
-        case 'setProducts':
+        case Actions.setProducts:
             return {...state, products: state.products = action.payload}
 
-        case 'addToFavorites':
+        case Actions.addProduct:
             const product = state.products.find(p => p.id === action.payload)
             return {...state, favorites: product? [...state.favorites, product] : state.favorites}
 
-        case 'removeFromFavorites':
+        case Actions.removeProduct:
             return {...state, favorites: state.favorites.filter(
                 (product: IProduct) => product.id !== action.payload)}
         default:

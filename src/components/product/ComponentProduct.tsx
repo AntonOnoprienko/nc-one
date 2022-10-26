@@ -4,16 +4,16 @@ import {IProduct} from "../../types/IProduct";
 import { useStoreState} from "../../store/store";
 import classes from './ComponentProduct.module.scss'
 import {useIdFinder} from "../../hooks/hooks";
-import {actionCreator, Actions} from "../../store/actions";
+import {actionDispatcher, Actions} from "../../store/actions";
 
 
 const ProductComponent = ({ product: {name,src,id,price}}:{product:IProduct }) => {
     const isLiked = useIdFinder(useStoreState('favorites'),id)
     const likeHandler = () => {
         if (!isLiked) {
-            actionCreator(Actions.addProduct,id)
+            actionDispatcher(Actions.addProduct,id)
         } else {
-           actionCreator(Actions.removeProduct,id)
+            actionDispatcher(Actions.removeProduct,id)
         }
     }
     return (

@@ -6,7 +6,7 @@ import {useStoreState} from "../../store/store";
 import {IProduct} from "../../types/IProduct";
 import ProductComponent from "./ComponentProduct";
 import classes from './ComponentProduct.module.scss'
-import {actionCreator, Actions} from "../../store/actions";
+import {actionDispatcher, Actions} from "../../store/actions";
 
 
 const ProductsListComponent = () => {
@@ -20,7 +20,7 @@ const ProductsListComponent = () => {
         axios.get(`https://testbackend.nc-one.com/image`)
             .then(res => {
                 const arr: IProduct[] = res.data;
-                actionCreator(Actions.setProducts, arr)
+                actionDispatcher(Actions.setProducts, arr)
             })
             .catch(error => {
                 errorMessage = error.message
