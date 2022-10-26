@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import {Navigate} from "react-router-dom";
-import {actionCreator, useStoreState} from "../store/store";
-import {useIdFinder, useParamsInt} from "../hooks/hooks";
-import classes from '../styles/details.module.scss'
+import { useStoreState} from "../../store/store";
+import {useIdFinder, useParamsInt} from "../../hooks/hooks";
+import classes from './ComponentDetails.module.scss'
+import {actionCreator, Actions} from "../../store/actions";
 
 const DetailsComponent = () => {
     const [isScaled, setIzScaled] = useState(false)
@@ -11,9 +12,9 @@ const DetailsComponent = () => {
     const product = useIdFinder(useStoreState('products'),id)
     const likeHandler = () => {
         if (!isLiked) {
-            actionCreator('addToFavorites', id)
+            actionCreator(Actions.addProduct, id)
         } else {
-            actionCreator('removeFromFavorites', id)
+            actionCreator(Actions.removeProduct, id)
         }
     }
     return (<>

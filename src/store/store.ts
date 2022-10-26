@@ -32,6 +32,5 @@ const reducer = (state = initialState, action: IAction): IState => {
     }
 }
     export const {dispatch, useStoreState} = createStore(reducer, initialState);
-    export const actionCreator = (action:string,actionPayload:number | null | Array<IProduct>) => {
-    dispatch({type: action, payload: actionPayload})
-}
+
+

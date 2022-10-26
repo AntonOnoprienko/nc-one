@@ -1,18 +1,19 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import {IProduct} from "../types/IProduct";
-import {actionCreator, useStoreState} from "../store/store";
-import classes from '../styles/product.module.scss'
-import {useIdFinder} from "../hooks/hooks";
+import {IProduct} from "../../types/IProduct";
+import { useStoreState} from "../../store/store";
+import classes from './ComponentProduct.module.scss'
+import {useIdFinder} from "../../hooks/hooks";
+import {actionCreator, Actions} from "../../store/actions";
 
 
 const ProductComponent = ({ product: {name,src,id,price}}:{product:IProduct }) => {
     const isLiked = useIdFinder(useStoreState('favorites'),id)
     const likeHandler = () => {
         if (!isLiked) {
-            actionCreator('addToFavorites',id)
+            actionCreator(Actions.addProduct,id)
         } else {
-           actionCreator('removeFromFavorites',id)
+           actionCreator(Actions.removeProduct,id)
         }
     }
     return (

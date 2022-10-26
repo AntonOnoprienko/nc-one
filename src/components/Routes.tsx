@@ -1,8 +1,8 @@
 import React from "react";
 import {Route, Routes} from "react-router-dom";
 import Layout from "./Layout";
-import Details from "./Details";
-import ProductsListComponent from "./ProductList";
+import Details from "./details/ComponentDetails";
+import ProductsListComponent from "./product/ComponentProductList";
 
 
 const RoutesComponent = () => {

@@ -1,8 +1,9 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-import {IProduct} from "../types/IProduct";
-import classes from '../styles/favorites.module.scss'
-import {actionCreator} from "../store/store";
+import {IProduct} from "../../types/IProduct";
+import classes from './ComponentFavorites.module.scss'
+import {actionCreator} from '../../store/actions'
+import {Actions} from "../../store/actions";
 
 
 const FavoriteItemComponent = ({product:{name,src,id,price}} : {product:IProduct}) => {
@@ -17,7 +18,7 @@ const FavoriteItemComponent = ({product:{name,src,id,price}} : {product:IProduct
             <div className={classes.description}>
                 <p className={classes.favorites__price}>$ {price}</p>
                 <svg onClick={() => {
-                    actionCreator('removeFromFavorites',id)
+                    actionCreator(Actions.removeProduct,id)
                 }} className={classes.favorites__btn} width="30" height="30" viewBox="0 0 30 30" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
                     <rect x="2.5" y="2.5" width="25" height="25" rx="7" fill="#414141"/>

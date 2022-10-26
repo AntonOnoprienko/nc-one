@@ -1,7 +1,7 @@
 import React from 'react';
-import classes from '../styles/favorites.module.scss'
-import {useStoreState} from "../store/store";
-import FavoriteItemComponent from "./FavoriteItem"
+import classes from './ComponentFavorites.module.scss'
+import {useStoreState} from "../../store/store";
+import FavoriteItemComponent from "./ComponentFavoriteItem"
 
 
 

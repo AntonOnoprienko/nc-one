@@ -1,5 +1,5 @@
 import {Link, useLocation} from "react-router-dom";
-import classes from '../styles/header.module.scss'
+import classes from './ComponentHeader.module.scss'
 const HeaderComponent = () => {
     const isProductPage = useLocation().pathname.includes('/details/')
 
